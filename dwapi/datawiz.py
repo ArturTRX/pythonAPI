@@ -897,7 +897,7 @@ class DW(Auth):
         has_next = True
         while has_next:
             params.update({'page': page})
-            data = self._get(url, params=params)
+            data = self._get(url, data=params)
             results = data.get('results', {"table": [], "has_next": False})
             has_next = data.get("next", False)
             page += 1
@@ -926,7 +926,7 @@ class DW(Auth):
             ----------
             Повертає придбані продукти (Ітератор, де кожен елемент це масив)
         """
-        kwargs.update({"page_size": chunk_size, "date_from": date_from, "date_to": date_to, "search": ["Coca-Cola 0.5л"]})
+        kwargs.update({"page_size": chunk_size, "date_from": date_from, "date_to": date_to})
         return self._custom_load_get(PURCHASE_DOCUMENTS, **kwargs)
 
 
