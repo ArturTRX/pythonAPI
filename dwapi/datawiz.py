@@ -913,14 +913,13 @@ class DW(Auth):
         kwargs.update({"page_size": chunk_size, "date_from": date_from, "date_to": date_to})
         return self._custom_load(INVENTORY_DETAIL, **kwargs)
 
-
     @_check_params
     def raw_purchase_documents(self,
-                              date_from=None,
-                              date_to=None,
-                              chunk_size=10000,
-                              **kwargs
-                              ):
+                               date_from=None,
+                               date_to=None,
+                               chunk_size=10000,
+                               **kwargs
+                               ):
         """
             Returns
             ----------
@@ -929,14 +928,13 @@ class DW(Auth):
         kwargs.update({"page_size": chunk_size, "date_from": date_from, "date_to": date_to})
         return self._custom_load_get(PURCHASE_DOCUMENTS, **kwargs)
 
-
     @_check_params
     def raw_receive_documents(self,
-                             date_from=None,
-                             date_to=None,
-                             chunk_size=10000,
-                             **kwargs
-                             ):
+                              date_from=None,
+                              date_to=None,
+                              chunk_size=10000,
+                              **kwargs
+                              ):
         """
             Returns
             ----------
@@ -944,7 +942,6 @@ class DW(Auth):
         """
         kwargs.update({"page_size": chunk_size, "date_from": date_from, "date_to": date_to})
         return self._custom_load_get(RECEIVE_DOCUMENTS, **kwargs)
-
 
     @_check_params
     def sale_items(self,
