@@ -924,7 +924,7 @@ class DW(Auth):
         """
             Returns
             ----------
-            Повертає придбані продукти (Ітератор, де кожен елемент це масив)
+            Повертає документи закупок продуктів у постачальників (Ітератор, де кожен елемент це масив)
         """
         kwargs.update({"page_size": chunk_size, "date_from": date_from, "date_to": date_to})
         return self._custom_load_get(PURCHASE_DOCUMENTS, **kwargs)
@@ -940,7 +940,7 @@ class DW(Auth):
         """
             Returns
             ----------
-            Повертає залишки клієнта за вибраний період (Ітератор, де кожен елемент це масив)
+            Повертає документи поставок продуктів у магазини (Ітератор, де кожен елемент це масив)
         """
         kwargs.update({"page_size": chunk_size, "date_from": date_from, "date_to": date_to})
         return self._custom_load_get(RECEIVE_DOCUMENTS, **kwargs)
