@@ -888,7 +888,7 @@ class DW(Auth):
             params.update({'page': page})
             data = self._post(url, data=params)
             results = data.get('results', {"table": [], "has_next": False})
-            has_next = data.get("next", False)
+            has_next = results.get("has_next", False)
             page += 1
             yield results["table"]
 
@@ -897,8 +897,8 @@ class DW(Auth):
         has_next = True
         while has_next:
             params.update({'page': page})
-            data = self._get(url, data=params)
-            results = data.get('results', {"table": [], "has_next": False})
+            data = self._get(url, params=params)
+            results = data.get('results', [])
             has_next = data.get("next", False)
             page += 1
             yield results
